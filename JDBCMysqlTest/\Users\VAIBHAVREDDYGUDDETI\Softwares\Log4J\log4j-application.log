@@ -1,0 +1,12 @@
+2017-01-08 00:57:23 INFO  JDBCConnectionTest:15 - MySQL JDBC Connection Testing
+2017-01-08 00:57:23 INFO  JDBCConnectionTest:25 - MySQL JDBC Driver Registered!
+2017-01-08 00:57:23 INFO  JDBCConnectionTest:41 - You made it, take control your database now!
+2017-01-08 00:58:01 INFO  JDBCConnectionTest:15 - MySQL JDBC Connection Testing
+2017-01-08 00:58:01 INFO  JDBCConnectionTest:25 - MySQL JDBC Driver Registered!
+2017-01-08 00:58:01 INFO  JDBCConnectionTest:41 - You made it, take control your database now!
+2017-01-08 01:01:07 INFO  JDBCConnectionTest:15 - MySQL JDBC Connection Testing
+2017-01-08 01:01:07 INFO  JDBCConnectionTest:25 - MySQL JDBC Driver Registered!
+2017-01-08 01:01:07 INFO  ReadConnectionProperties:14 - Inside readProperties method
+2017-01-08 01:01:08 INFO  JDBCConnectionTest:41 - You made it, take control your database now!
+2017-01-08 01:03:06 INFO  SearchTable:22 - Inside SearchTable class
+2017-01-08 01:03:06 INFO  ReadConnectionProperties:14 - Inside readProperties method

@@ -3,37 +3,44 @@ package com.mysql.jdbc.connectiontest;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.establishconnection.DBConnection;
+import com.mysql.jdbc.establishconnection.ReadConnectionProperties;
 
 public class JDBCConnectionTest {
+	final static Logger logger =  Logger.getLogger(JDBCConnectionTest.class);
 	public static void main(String[] args) {
-		System.out.println("-------- MySQL JDBC Connection Testing ------------");
+		logger.info("MySQL JDBC Connection Testing");
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
-			System.out.println("Where is your MySQL JDBC Driver?");
+			logger.warn("Where is your MySQL JDBC Driver?");
 			e.printStackTrace();
 			return;
 		}
 
-		System.out.println("MySQL JDBC Driver Registered!");
+		logger.info("MySQL JDBC Driver Registered!");
 		Connection connection = null;
 
 		try {
-			connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/us_states?useSSL=false", "root",
-					"0447");
+			ReadConnectionProperties connectionConfig =  new ReadConnectionProperties();
+			DBConnection connectionParams = connectionConfig.readProperties();
+			connection = (Connection) DriverManager.getConnection(connectionParams.getDatabaseTest(), connectionParams.getDbuser(),
+					connectionParams.getDbpassword());
 
 		} catch (SQLException e) {
-			System.out.println("Connection Failed! Check output console");
+			logger.fatal("Connection Failed! Check output console");
 			e.printStackTrace();
 			return;
 		}
 
 		if (connection != null) {
-			System.out.println("You made it, take control your database now!");
+			logger.info("You made it, take control your database now!");
 		} else {
-			System.out.println("Failed to make connection!");
+			logger.error("Failed to make connection!");
 		}
 	}
 }
