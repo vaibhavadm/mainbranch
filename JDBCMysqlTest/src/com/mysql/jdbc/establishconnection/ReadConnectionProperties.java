@@ -6,8 +6,6 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import com.mysql.jdbc.connectiontest.JDBCConnectionTest;
-
 public class ReadConnectionProperties {
 	final static Logger logger =  Logger.getLogger(ReadConnectionProperties.class);
 	public DBConnection readProperties() {

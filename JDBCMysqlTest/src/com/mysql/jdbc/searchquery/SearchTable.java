@@ -1,13 +1,8 @@
 package com.mysql.jdbc.searchquery;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
