@@ -1,0 +1,5 @@
+2017-01-08 00:06:27 DEBUG Log4JTester:9 - This is Debug
+2017-01-08 00:06:27 INFO  Log4JTester:10 - This is Info
+2017-01-08 00:06:27 WARN  Log4JTester:11 - This is Warn
+2017-01-08 00:06:27 ERROR Log4JTester:12 - This is Error
+2017-01-08 00:06:27 FATAL Log4JTester:13 - This is Fatal
