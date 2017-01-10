@@ -10,3 +10,16 @@
 2017-01-08 01:01:08 INFO  JDBCConnectionTest:41 - You made it, take control your database now!
 2017-01-08 01:03:06 INFO  SearchTable:22 - Inside SearchTable class
 2017-01-08 01:03:06 INFO  ReadConnectionProperties:14 - Inside readProperties method
+2017-01-08 11:31:54 INFO  SearchTable:17 - Inside SearchTable class
+2017-01-08 11:31:54 INFO  ReadConnectionProperties:12 - Inside readProperties method
+2017-01-08 11:31:55 FATAL SearchTable:42 - Connection Failed! Check output console
+2017-01-08 11:33:15 INFO  SearchTable:17 - Inside SearchTable class
+2017-01-08 11:33:23 INFO  ReadConnectionProperties:12 - Inside readProperties method
+2017-01-08 11:33:58 FATAL SearchTable:42 - Connection Failed! Check output console
+2017-01-08 11:34:19 INFO  SearchTable:17 - Inside SearchTable class
+2017-01-08 11:34:20 INFO  ReadConnectionProperties:12 - Inside readProperties method
+2017-01-08 11:35:19 FATAL SearchTable:42 - Connection Failed! Check output console
+2017-01-08 11:38:23 INFO  SearchTable:17 - Inside SearchTable class
+2017-01-08 11:38:23 INFO  ReadConnectionProperties:12 - Inside readProperties method
+2017-01-08 11:42:22 INFO  SearchTable:17 - Inside SearchTable class
+2017-01-08 11:42:22 INFO  ReadConnectionProperties:12 - Inside readProperties method
