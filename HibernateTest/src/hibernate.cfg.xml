@@ -2,20 +2,33 @@
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>       
-  <session-factory>
-    <!-- Database connection settings -->
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="connection.url">jdbc:mysql://localhost:3306/us_states</property>
-    <property name="connection.username">root</property>
-    <property name="connection.password">0447</property>
-    
-    
-    <!--The below line tells Hibernate to show all SQL statements to the standard output. -->
-    <property name="show_sql">true</property>
-    
-     <!--The below line tells Hibernate to parse the mapping file. -->
-    <mapping resource="/com/hibernate/States.hbm.xml"/>
-    
-  </session-factory>
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/us_states</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">0447</property>
+
+		<!-- JDBC Connection pool (Use the built-in) -->
+		<property name="connection.pool_size">1</property>
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!--The below line tells Hibernate to show all SQL statements to the standard 
+			output. -->
+		<property name="show_sql">true</property>
+
+		<!--The below line tells Hibernate to parse the mapping file. -->
+		<mapping resource="/com/hibernate/States.hbm.xml" />
+		
+		<!-- Drop and re-create the database schema on startup 
+		<property name="hbm2ddl.auto">create</property>-->
+
+		<!-- Names the annotated entity class
+		<mapping class="org.hibernate.tutorial.annotations.Event" /> -->
+		
+		
+	</session-factory>
 </hibernate-configuration>
