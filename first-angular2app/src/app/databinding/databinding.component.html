@@ -1,0 +1,25 @@
+
+<h4>String Interpolation</h4>
+<p>
+	{{stringInterpolation}}
+	<br>
+	{{numberInterpolation}}
+</p>
+<hr>
+<h4>Property Binding</h4>
+<input type="text" [value]="stringInterpolation">
+<p [ngClass]="{redBorder: onTest()}">Is this styled?</p>
+<p [ngStyle]="{color: 'blue'}">Is this styled?</p>
+<hr>
+<h4>Custom Property Binding</h4>
+<app-property-binding [result]="10"></app-property-binding>
+<hr>
+<h4>Event Binding</h4>
+<app-event-binding></app-event-binding> <!-- custom event doesn't work here.-->
+<hr>
+<h4>Custom Event Binding</h4>
+<app-event-binding (clicked)="onClicked($event)"></app-event-binding>
+<hr>
+<h4>Two-Way Data Binding</h4>
+<app-two-way-binding></app-two-way-binding>
+
