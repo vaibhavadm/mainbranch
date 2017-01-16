@@ -16,6 +16,7 @@ List of Projects:
 2.)JDBCMysqlTest - A simple JDBC/MySQL setup application that uses MySQl and performs CRUD operations.
 3.)Log4JTest - A simple project that shows how to integrate Log4j from org.apache.* to java peojects.
 4.)SnakeGame- A complete UI based application for SnakeGame with HTML Canvas/Jquery/CSS. Description of each and every step is mentioned in that project.
-5.)first-angular-app- A Angular 2 project :)
+5.)first-angular-app- A Angular 2 project
+6.)recipe-book - A complete Angular 2 project from end to end.
 
 
