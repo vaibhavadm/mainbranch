@@ -4,12 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HighlightDirective } from './highlight.directive';
+import { HightlightDirectiveDirective } from './hightlight-directive.directive';
+import { HostListenerhostBindingDirective } from './hostlistener-hostbinding.directive';
+import { HighlightDirectivePropertyBindingDirective } from './highlight-directive-property-binding.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightDirective
+    HightlightDirectiveDirective,
+    HostListenerhostBindingDirective,
+    HighlightDirectivePropertyBindingDirective
   ],
   imports: [
     BrowserModule,
