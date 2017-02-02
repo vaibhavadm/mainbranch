@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HightlightDirectiveDirective } from './hightlight-directive.directive';
 import { HostListenerhostBindingDirective } from './hostlistener-hostbinding.directive';
 import { HighlightDirectivePropertyBindingDirective } from './highlight-directive-property-binding.directive';
+import { MycustomdirectiveUnlessDirective } from './mycustomdirective-unless.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HightlightDirectiveDirective,
     HostListenerhostBindingDirective,
-    HighlightDirectivePropertyBindingDirective
+    HighlightDirectivePropertyBindingDirective,
+    MycustomdirectiveUnlessDirective
   ],
   imports: [
     BrowserModule,
