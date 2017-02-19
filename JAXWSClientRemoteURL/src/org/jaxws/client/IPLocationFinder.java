@@ -13,6 +13,12 @@ import net.webservicex.GeoIPServiceSoap;
  * http://www.webservicex.net/geoipservice.asmx?WSDL 
  * wsimport -keep -s src http://www.webservicex.net/geoipservice.asmx?WSDL 
  */
+
+/**
+ * To Run this program pass the IP address from RunConfiguration->ProgramArguments
+ * @author VAIBHAVREDDYGUDDETI
+ *Feb 19, 2017
+ */
 public class IPLocationFinder {
 	public static void main(String[] args) {
 		if (args.length != 1) {
