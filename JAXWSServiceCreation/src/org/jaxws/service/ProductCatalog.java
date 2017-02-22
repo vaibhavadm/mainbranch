@@ -22,7 +22,7 @@ import org.jaxws.service.business.ProductCatalogImp;
  * The above mentioned code is changed and some annotations are moved to SEI
  * As an Interface has multiple implementations, the serviceName, portName are used in service Implementation rather than in Interface 
  */
-@WebService(endpointInterface="org.jaxws.service.SEI.PublicCatalogInterface",portName="TestJAXWSPortName",
+@WebService(endpointInterface="org.jaxws.service.SEI.ProductCatalogInterface",portName="TestJAXWSPortName",
 			serviceName="JAXWSTestProductCatalogService")
 public class ProductCatalog implements ProductCatalogInterface {
 	ProductCatalogImp productCatalogObj = new ProductCatalogImp();

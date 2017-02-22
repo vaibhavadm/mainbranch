@@ -6,6 +6,7 @@ package org.jaxws.service.SEI;
 import java.util.List;
 
 import javax.jws.WebMethod;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import org.jaxws.service.business.Product;
@@ -18,12 +19,13 @@ import org.jaxws.service.business.Product;
 @WebService(name="TestJAXWSService", targetNamespace="http://JAXWSTestNameSpace.com")
 public interface ProductCatalogInterface {
 	@WebMethod(action="fetchTestCategories", operationName="fetchDifferentProducts")
-	List<String> getProductCategories();
+	public abstract List<String> getProductCategories();
 	@WebMethod()
-	List<String> getProductSpecificList(String category);
+	public abstract List<String> getProductSpecificList(String category);
 	@WebMethod()
-	boolean addProductsTOList(String product, String category);
+	public abstract boolean addProductsTOList(String product, String category);
 	@WebMethod()
-	List<Product> getProductCategoriesV2(String category);
+	@WebResult(name="Products")
+	public abstract List<Product> getProductCategoriesV2(String category);
 
 }
