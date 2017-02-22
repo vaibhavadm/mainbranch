@@ -5,7 +5,10 @@ package org.jaxws.service;
 
 import java.util.List;
 
+import javax.jws.WebMethod;
+import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.xml.ws.WebEndpoint;
 
 import org.jaxws.service.SEI.PublicCatalogInterface;
 import org.jaxws.service.business.Product;
@@ -53,6 +56,8 @@ public class ProductCatalog implements PublicCatalogInterface {
 	 * @see org.jaxws.service.PublicCatalogInterface#getProductCategoriesV2(java.lang.String)
 	 */
 	@Override
+	@WebMethod
+	@WebResult(name="Product")
 	public List<Product> getProductCategoriesV2(String category){
 		return productCatalogObj.getProductCatalogListV2(category);
 		

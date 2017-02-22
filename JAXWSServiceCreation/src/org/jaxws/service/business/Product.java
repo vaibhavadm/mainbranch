@@ -3,14 +3,20 @@
  */
 package org.jaxws.service.business;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * @author VAIBHAVREDDYGUDDETI Feb 21, 2017
  */
+@XmlRootElement(name="Product")
+@XmlType(propOrder={"price", "sku", "name"})
 public class Product {
 	private String name;
 	private String sku;
 	private double price;
-
+	@XmlElement(name="ProductName")
 	public String getName() {
 		return name;
 	}
@@ -46,5 +52,12 @@ public class Product {
 		this.sku = sku;
 		this.price = price;
 	}
-
+	
+	
+	/**
+	 * JAXB needs a default constructor to configure the customization
+	 */
+	public Product(){
+		
+	}
 }
