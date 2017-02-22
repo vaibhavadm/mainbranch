@@ -5,12 +5,9 @@ package org.jaxws.service;
 
 import java.util.List;
 
-import javax.jws.WebMethod;
-import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.xml.ws.WebEndpoint;
 
-import org.jaxws.service.SEI.PublicCatalogInterface;
+import org.jaxws.service.SEI.ProductCatalogInterface;
 import org.jaxws.service.business.Product;
 import org.jaxws.service.business.ProductCatalogImp;
 
@@ -27,37 +24,26 @@ import org.jaxws.service.business.ProductCatalogImp;
  */
 @WebService(endpointInterface="org.jaxws.service.SEI.PublicCatalogInterface",portName="TestJAXWSPortName",
 			serviceName="JAXWSTestProductCatalogService")
-public class ProductCatalog implements PublicCatalogInterface {
+public class ProductCatalog implements ProductCatalogInterface {
 	ProductCatalogImp productCatalogObj = new ProductCatalogImp();
 
-	/* (non-Javadoc)
-	 * @see org.jaxws.service.PublicCatalogInterface#getProductCategories()
-	 */
 	@Override
 	public List<String> getProductCategories() {
 		return productCatalogObj.getProductCatalogList();
 	}
-	/* (non-Javadoc)
-	 * @see org.jaxws.service.PublicCatalogInterface#getProductSpecificList(java.lang.String)
-	 */
+	
 	@Override
 	public List<String> getProductSpecificList(String category) {
 		return productCatalogObj.getProductSpecificList(category);
 	}
-	/* (non-Javadoc)
-	 * @see org.jaxws.service.PublicCatalogInterface#addProductsTOList(java.lang.String, java.lang.String)
-	 */
+	
 	@Override
 	public boolean addProductsTOList(String product, String category) {
 		return productCatalogObj.addProductsTOList(product, category);
 	}
 	
-	/* (non-Javadoc)
-	 * @see org.jaxws.service.PublicCatalogInterface#getProductCategoriesV2(java.lang.String)
-	 */
+	
 	@Override
-	@WebMethod
-	@WebResult(name="Product")
 	public List<Product> getProductCategoriesV2(String category){
 		return productCatalogObj.getProductCatalogListV2(category);
 		

@@ -16,7 +16,7 @@ import org.jaxws.service.business.Product;
  */
 
 @WebService(name="TestJAXWSService", targetNamespace="http://JAXWSTestNameSpace.com")
-public interface PublicCatalogInterface {
+public interface ProductCatalogInterface {
 	@WebMethod(action="fetchTestCategories", operationName="fetchDifferentProducts")
 	List<String> getProductCategories();
 	@WebMethod()
