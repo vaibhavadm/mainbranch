@@ -84,4 +84,15 @@ public class ProductCatalogImp {
 		return true;
 	}
 
+	/**
+	 * @return
+	 */
+	public List<Product> getProductCatalogListV2(String category) {
+		// TODO Auto-generated method stub
+		List<Product> fullList = new ArrayList<>();
+		fullList.add(new Product("Test WebServices Book", "EducationBooks", 125.40));
+		fullList.add(new Product("Test Another Book", "EducationBooks", 120.40));
+		return fullList;
+	}
+
 }
