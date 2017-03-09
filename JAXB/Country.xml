@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<country xmlns:ns2="javatoxml.Country">
+    <statesList>
+        <state>
+            <stateName>Andhra Pradesh</stateName>
+            <statePopulation>70000000</statePopulation>
+        </state>
+        <state>
+            <stateName>Karnataka</stateName>
+            <statePopulation>50000000</statePopulation>
+        </state>
+        <state>
+            <stateName>Delhi</stateName>
+            <statePopulation>80000000</statePopulation>
+        </state>
+    </statesList>
+    <name>India</name>
+    <population>1.0E9</population>
+</country>
