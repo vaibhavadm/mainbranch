@@ -12,11 +12,16 @@ Important thing when ever I start developing a major project I will make sure th
 
 List of Projects:
 ------------------
-1.)HibernateTest - A simple hibernate setup application that uses MySQl and performs CRUD operations.
-2.)JDBCMysqlTest - A simple JDBC/MySQL setup application that uses MySQl and performs CRUD operations.
-3.)Log4JTest - A simple project that shows how to integrate Log4j from org.apache.* to java peojects.
-4.)SnakeGame- A complete UI based application for SnakeGame with HTML Canvas/Jquery/CSS. Description of each and every step is mentioned in that project.
-5.)first-angular-app- A Angular 2 project
-6.)recipe-book - A complete Angular 2 project from end to end.
+--HibernateTest - A simple hibernate setup application that uses MySQl and performs CRUD operations.
+--JDBCMysqlTest - A simple JDBC/MySQL setup application that uses MySQl and performs CRUD operations.
+--Log4JTest - A simple project that shows how to integrate Log4j from org.apache.* to java peojects.
+--SnakeGame- A complete UI based application for SnakeGame with HTML Canvas/Jquery/CSS. Description of each and every step is mentioned in that project.
+--first-angular-app- A Angular 2 project
+--recipe-book - A complete Angular 2 project from end to end.
+--JAXB - A simple project that helps us to convet a java object to XML and viceversa.
+-- JAXWSServiceCreation - project that shows the service creation of JAXWS webservice (SOAP).
+-- JAXWSClientRemoteURL - project that helps to generate/ write a client application for generated WSDL file.
+-- JAXRSMessenger - A major JAXRS application (Jersey Implementation) that shows how RESTFul webservice resources are generated and used.
+
 
 
