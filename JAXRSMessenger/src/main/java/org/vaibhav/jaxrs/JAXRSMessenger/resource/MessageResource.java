@@ -1,5 +1,6 @@
 package org.vaibhav.jaxrs.JAXRSMessenger.resource;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -11,7 +12,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 import org.vaibhav.jaxrs.JAXRSMessenger.model.Message;
 import org.vaibhav.jaxrs.JAXRSMessenger.service.MessageService;
@@ -27,14 +31,13 @@ public class MessageResource {
 	// to add filteration and pagination we have to use QueryParams
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Message> getAllMessage(@QueryParam("year") int yearFromURL,
-									   @QueryParam("start") int startFromURL,
-									   @QueryParam("size") int sizeFromURL) {
-		if(yearFromURL>0){
+	public List<Message> getAllMessage(@QueryParam("year") int yearFromURL, @QueryParam("start") int startFromURL,
+			@QueryParam("size") int sizeFromURL) {
+		if (yearFromURL > 0) {
 			return msgService.getallMessagesForYear(yearFromURL);
 		}
-		
-		if(startFromURL>0 && sizeFromURL>0){
+
+		if (startFromURL > 0 && sizeFromURL > 0) {
 			return msgService.getAllMessagesPaginated(startFromURL, sizeFromURL);
 		}
 		return msgService.getallMessages();
@@ -51,8 +54,20 @@ public class MessageResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Message addMessage(Message jsonMessage) {
-		return msgService.addMessage(jsonMessage);
+	// Modifying the below code to get return the status code and the updated
+	// location in header
+	/*
+	 * public Message addMessage(Message jsonMessage) { return
+	 * msgService.addMessage(jsonMessage); }
+	 */
+	public Response addMessage(Message jsonMessage, @Context UriInfo uriInfo) {
+		Message newMessage = msgService.addMessage(jsonMessage);
+		// use the below line if only the status code needs to be send
+		// return
+		// Response.status(javax.ws.rs.core.Response.Status.CREATED).entity(newMessage).build();
+		String locationPath = String.valueOf(newMessage.getId());
+		URI newURI = uriInfo.getAbsolutePathBuilder().path(locationPath).build();
+		return Response.created(newURI).entity(newMessage).build();
 	}
 
 	@DELETE
@@ -68,11 +83,11 @@ public class MessageResource {
 	public Message updateMessage(Message jsonMessage) {
 		return msgService.updateMessage(jsonMessage);
 	}
-	
-	//this is how we do sub-resourcing in jax-rs
+
+	// this is how we do sub-resourcing in jax-rs
 	@Path("/{messageId}/comments")
-	public CommentResource getComments(@PathParam("messageId") int id){
+	public CommentResource getComments(@PathParam("messageId") int id) {
 		return new CommentResource();
 	}
-	
+
 }
