@@ -44,6 +44,7 @@ public class MessageResource {
 	}
 
 	// the id in path parameter and pathparam parameter should be the same
+	//adding jax-rs exceptions to this method
 	@GET
 	@Path("/{messageId}")
 	@Produces(MediaType.APPLICATION_XML)

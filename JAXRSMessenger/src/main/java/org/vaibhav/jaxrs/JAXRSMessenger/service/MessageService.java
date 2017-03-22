@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.vaibhav.jaxrs.JAXRSMessenger.database.DummyDatabase;
+import org.vaibhav.jaxrs.JAXRSMessenger.exception.DataNotFoundException;
 import org.vaibhav.jaxrs.JAXRSMessenger.model.Message;
 
 public class MessageService {
@@ -43,9 +44,14 @@ public class MessageService {
 			return new ArrayList<Message>();
 		return list.subList(start, start + size);
 	}
-
+	
+	//adding code to support exception/fault 
 	public Message getMessage(long id) {
-		return messages.get(id);
+		Message message  = messages.get(id);
+		if(message == null){
+			throw new DataNotFoundException("Resource you are looking is not available");
+		}else
+		return message;
 	}
 
 	public Message addMessage(Message message) {
