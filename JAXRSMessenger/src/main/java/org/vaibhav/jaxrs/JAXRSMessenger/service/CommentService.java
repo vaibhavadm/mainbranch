@@ -28,6 +28,8 @@ public class CommentService {
 	// order to
 	// test this the @Provide annotation is commented out for
 	// GenericExceptionMapper
+	// Try not to use WebApplicationExceptions as there is tight coupling of the
+	// view code in business logic as shown here
 	public Comment getSingleComment(long messageId, long commentId) {
 		ErrorMessage errorMsg = new ErrorMessage("Not found", 404, "http://vaibhavjavaworld.com");
 		Message message = messages.get(messageId);
