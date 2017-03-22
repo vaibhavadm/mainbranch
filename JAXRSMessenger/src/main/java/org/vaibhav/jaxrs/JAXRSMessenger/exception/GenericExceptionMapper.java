@@ -17,7 +17,9 @@ import org.vaibhav.jaxrs.JAXRSMessenger.model.ErrorMessage;
  * 
  * @author VAIBHAVREDDYGUDDETI Mar 21, 2017
  */
-@Provider
+// the below code is commented to check the WebApplicatinExceptions in CommentService, they are
+// different kind of exceptions
+// @Provider
 public class GenericExceptionMapper implements ExceptionMapper<Throwable> {
 
 	@Override
