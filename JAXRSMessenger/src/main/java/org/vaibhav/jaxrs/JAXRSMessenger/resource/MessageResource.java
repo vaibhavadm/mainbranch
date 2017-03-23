@@ -44,12 +44,49 @@ public class MessageResource {
 	}
 
 	// the id in path parameter and pathparam parameter should be the same
-	//adding jax-rs exceptions to this method
+	// adding jax-rs exceptions to this method
 	@GET
 	@Path("/{messageId}")
-	@Produces(MediaType.APPLICATION_XML)
-	public Message getSingleMessage(@PathParam("messageId") long messageID) {
-		return msgService.getMessage(messageID);
+	// @Produces(MediaType.APPLICATION_XML)-Application failes as we have this
+	// overriding in class level.
+	public Message getSingleMessage(@PathParam("messageId") long messageID, @Context UriInfo uriInfo) {
+		Message message = msgService.getMessage(messageID);
+		
+		message.addLink(getURIForSelf(uriInfo, message), "self");
+		message.addLink(getURIForProfile(uriInfo, message), "profile");
+		message.addLink(getURIForComments(uriInfo, message), "Comments");
+		return message;
+	}
+
+	//http://localhost:8081/JAXRSMessenger/webapi/messages/1/comments
+	// Here comments are a sub-resource of message class so we have to navigate
+	// through the path for correct resource URI
+	private String getURIForComments(UriInfo uriInfo, Message message) {
+		String uri = uriInfo.getBaseUriBuilder() 		//-->http://localhost:8081/JAXRSMessenger/webapi
+						.path(MessageResource.class)	//--> /messages
+						.path(MessageResource.class,"getComments") //--> /messageId/comments
+						.resolveTemplate("messageId", message.getId()) //--> replace the messageID with the dynamic value.
+						.toString();//--> /1/comments
+		return uri;
+	}
+
+	//http://localhost:8081/JAXRSMessenger/webapi/profiles/Vaibhav
+	private String getURIForProfile(UriInfo uriInfo, Message message) {
+		String uri = uriInfo.getBaseUriBuilder()
+						.path(ProfileResource.class)
+						.path(message.getAuthor())
+						.toString();
+		return uri;
+	}
+
+
+	//http://localhost:8081/JAXRSMessenger/webapi/messages/1
+	private String getURIForSelf(UriInfo uriInfo, Message message) {
+		String uri = uriInfo.getBaseUriBuilder() 	     //--> http://localhost:8081/JAXRSMessenger/webapi
+						.path(MessageResource.class)	 //-->/messages
+						.path(String.valueOf(message.getId()))
+						.toString();  ///1
+		return uri;
 	}
 
 	@POST

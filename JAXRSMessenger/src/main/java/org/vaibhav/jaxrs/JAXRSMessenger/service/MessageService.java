@@ -48,9 +48,9 @@ public class MessageService {
 	//adding code to support exception/fault 
 	public Message getMessage(long id) {
 		Message message  = messages.get(id);
-		if(message == null){
-			throw new DataNotFoundException("Resource you are looking is not available");
-		}else
+//		if(message == null){
+//			throw new DataNotFoundException("Resource you are looking is not available");
+//		}else
 		return message;
 	}
 
