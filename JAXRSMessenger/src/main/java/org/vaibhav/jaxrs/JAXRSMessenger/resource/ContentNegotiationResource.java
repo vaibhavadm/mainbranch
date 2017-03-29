@@ -19,8 +19,19 @@ import javax.ws.rs.core.MediaType;
 public class ContentNegotiationResource {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
+	@Path("customMessageBodyWriter")
 	//The return type is the Date which is a custom MediaType
-	public Date testMethod(){
+	public Date getDate(){
+		return Calendar.getInstance().getTime();
+		
+	}
+	
+	//the below code is to send the custom MediaType
+	@GET
+	@Produces("text/shortdate")
+	@Path("customMediaType")
+	//The return type is the Date which is a custom MediaType
+	public Date getShortDate(){
 		return Calendar.getInstance().getTime();
 		
 	}
