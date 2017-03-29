@@ -5,6 +5,7 @@ package org.vaibhav.jaxrs.JAXRSClient;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
@@ -62,6 +63,7 @@ public class MessageClient {
 		System.out.println(stringObj);
 		System.out.println("\n" + "\n" + "\n");
 		
+		
 		// Best Practices - Generic date resources, this way we can optimize the code
 		WebTarget baseTarget = client.target("http://localhost:8081/JAXRSMessenger/webapi/");
 		WebTarget messageTarget = baseTarget.path("messages");
@@ -72,7 +74,21 @@ public class MessageClient {
 		String stringObj2 = singleMessagePath.resolveTemplate("messageId", "2").request(MediaType.APPLICATION_JSON)
 				.get(String.class);
 		System.out.println(stringObj2);
+		Message Message3 = singleMessagePath.resolveTemplate("messageId", "2").request(MediaType.APPLICATION_JSON)
+				.get(Message.class);
+		System.out.println("\n" + "\n" + "\n");
 		
 		
+		//Using a post, we should post the data to baseTarget
+		Message newPostMessagefromClient = new Message(4, "Post message from Client", "vaibhav");
+		Response postResponse = messageTarget.request().post(Entity.json(newPostMessagefromClient));
+		String readPostEntity = postResponse.readEntity(String.class);//I can go with Message.class but for testing purpose I used String:)
+		System.out.println(readPostEntity);
+		
+		// Using a put request- this is failing needs to fix
+		Response putResponse = messageTarget.resolveTemplate("author", "vaibhav-1").request()
+				.put(Entity.json(Message3));
+		String readPutEntity = putResponse.readEntity(String.class);
+		System.out.println("Put" + readPutEntity);
 	}
 }
