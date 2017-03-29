@@ -19,6 +19,7 @@ import javax.ws.rs.core.MediaType;
 public class ContentNegotiationResource {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
+	//The return type is the Date which is a custom MediaType
 	public Date testMethod(){
 		return Calendar.getInstance().getTime();
 		
