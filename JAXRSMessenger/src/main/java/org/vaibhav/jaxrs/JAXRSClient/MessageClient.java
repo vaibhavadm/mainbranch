@@ -58,8 +58,21 @@ public class MessageClient {
 		//as the JAX-RS coverts the returning type to string
 		WebTarget target3 = client.target("http://localhost:8081/JAXRSMessenger/webapi/messages/3");
 		Builder request2 = target3.request(MediaType.APPLICATION_JSON);
-		String string = request2.get(String.class);
-		System.out.println(string);
+		String stringObj = request2.get(String.class);
+		System.out.println(stringObj);
+		System.out.println("\n" + "\n" + "\n");
+		
+		// Best Practices - Generic date resources, this way we can optimize the code
+		WebTarget baseTarget = client.target("http://localhost:8081/JAXRSMessenger/webapi/");
+		WebTarget messageTarget = baseTarget.path("messages");
+		WebTarget singleMessagePath = messageTarget.path("{messageId}");
+		String stringObj1 = singleMessagePath.resolveTemplate("messageId", "1").request(MediaType.APPLICATION_JSON)
+				.get(String.class);
+		System.out.println(stringObj1);
+		String stringObj2 = singleMessagePath.resolveTemplate("messageId", "2").request(MediaType.APPLICATION_JSON)
+				.get(String.class);
+		System.out.println(stringObj2);
+		
 		
 	}
 }
