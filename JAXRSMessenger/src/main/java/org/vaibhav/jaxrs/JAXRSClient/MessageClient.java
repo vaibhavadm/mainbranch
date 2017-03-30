@@ -6,6 +6,7 @@ package org.vaibhav.jaxrs.JAXRSClient;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
@@ -86,9 +87,27 @@ public class MessageClient {
 		System.out.println(readPostEntity);
 		
 		// Using a put request- this is failing needs to fix
-		Response putResponse = messageTarget.resolveTemplate("author", "vaibhav-1").request()
-				.put(Entity.json(Message3));
-		String readPutEntity = putResponse.readEntity(String.class);
-		System.out.println("Put" + readPutEntity);
+		Invocation.Builder invocationBuilder =  messageTarget.request(MediaType.APPLICATION_JSON);
+		Response putResponse = invocationBuilder.put(Entity.entity(Message3, MediaType.APPLICATION_JSON));
+		Message readPutEntity = putResponse.readEntity(Message.class);
+		System.out.println("Put: " + readPutEntity.getAuthor());
+		
+		
+		//Adding how to use Invocations concept,
+		MessageClient invocationDemo = new MessageClient();
+		Response invokeResponse = invocationDemo.prepareRequestforMessagesByYear(2017).invoke();
+		System.out.println("Checking status to see whether the request passed/failed: " + invokeResponse.getStatus());
+		
+		
+	}
+	
+	// this way we can limit the use of the code and the invocation interface
+	// has all the info about the request, especially use when we have service/utility methods.
+	public Invocation prepareRequestforMessagesByYear(int year) {
+		Client client = ClientBuilder.newClient();
+		WebTarget baseTarget = client.target("http://localhost:8081/JAXRSMessenger/webapi/").path("messages");
+		// http://localhost:8081/JAXRSMessenger/webapi/messages?year=2015
+		Invocation buildGet = baseTarget.queryParam("year", year).request(MediaType.APPLICATION_JSON).buildGet();
+		return buildGet;
 	}
 }
