@@ -3,12 +3,15 @@
  */
 package org.vaibhav.jaxrs.JAXRSClient;
 
+import java.util.List;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -99,6 +102,10 @@ public class MessageClient {
 		System.out.println("Checking status to see whether the request passed/failed: " + invokeResponse.getStatus());
 		
 		
+		//Handling Generic Types
+		MessageClient genericReturnTypes = new MessageClient();
+		List<Message> listofMessages = genericReturnTypes.getListofMessages(2017);
+		System.out.println("This is how we get Generic Return Types: " + listofMessages);
 	}
 	
 	// this way we can limit the use of the code and the invocation interface
@@ -109,5 +116,14 @@ public class MessageClient {
 		// http://localhost:8081/JAXRSMessenger/webapi/messages?year=2015
 		Invocation buildGet = baseTarget.queryParam("year", year).request(MediaType.APPLICATION_JSON).buildGet();
 		return buildGet;
+	}
+	
+	//handling generic return types
+	public List<Message> getListofMessages(int year) {
+		Client client = ClientBuilder.newClient();
+		List<Message> messageList = client.target("http://localhost:8081/JAXRSMessenger/webapi/").path("messages")
+				.queryParam("year", year).request(MediaType.APPLICATION_JSON).get(new GenericType<List<Message>>() {
+				});
+		return messageList;
 	}
 }
