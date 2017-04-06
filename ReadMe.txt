@@ -1,11 +1,8 @@
 Hi,
 
 Thanks for visiting, the code here is for my personal use and what I develop in free time. 
-I will be comitting many projects here!
 
-Most of them have a meaningful purpose.
-
-Important thing when ever I start developing a major project I will make sure the tools and technologies I use in that project works independently in my dev machine so that I can integrate them without getting into trouble later. I will provide a list of projects that are worth checking.
+Here are a list of projects that are worth checking.
 
 "HAPPY CODING".
 
@@ -22,6 +19,9 @@ List of Projects:
 -- JAXWSServiceCreation - project that shows the service creation of JAXWS webservice (SOAP).
 -- JAXWSClientRemoteURL - project that helps to generate/ write a client application for generated WSDL file.
 -- JAXRSMessenger - A major JAXRS application (Jersey Implementation) that shows how RESTFul webservice resources are generated and used.
+-- SpringBoot - A Basic SpringBoot application that I created using Spring STS plugin for eclipse, we can do the same with STS, Spring Initializr, Spring CLI or Maven(adding "spring-boot-starter-parent" as the parent & "spring-boot-starter-web" as the dependency)
+-- SpringBoot-SpringJPA - A complete SpringBoot and Rest application that uses Spring-JPA & Apache derby as a embedded DB with tomcat as a embedded server.
+--SpringBoot-CompelteSpringMVC - A complete SpringMVC application generated with SpringBoot, It has both the thymeleaf and JSP engine support. Find that thymeleaf is commented and only jsp view is set in application.properties in resources folder [spring.mvc.view.prefix: /WEB-INF/jsp/]
 
 
 
