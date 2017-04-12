@@ -1,4 +1,4 @@
-<!-- by defult spring is looking for a file named [despatcher servlet name]-servlet.xml 
+<!-- by defult spring is looking for a file named [dispatcher servlet name]-servlet.xml 
 	located in the application's WebContent/WEB-INF directory in our case [spring-dispatcher]-servlet -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
