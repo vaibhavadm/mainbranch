@@ -3,7 +3,6 @@
  */
 package com.vaibhav.after8;
 
-import com.vaibhav.before8.IGreeting;
 
 /**
  * @author VAIBHAVREDDYGUDDETI Apr 12, 2017
