@@ -10,7 +10,7 @@
    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:component-scan base-package="org.vaibhav.spring.mvc"/>		
-	
+	<mvc:annotation-driven/>
 <!-- ********************************************************************************** -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
