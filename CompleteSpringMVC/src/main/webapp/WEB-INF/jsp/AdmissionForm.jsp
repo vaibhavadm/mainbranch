@@ -10,12 +10,33 @@
 	<h2>${voidMsg}</h2>
 	<h1>Student Admission Form</h1>
 	<form action="/CompleteSpringMVC/submitAdmissionForm.htm" method="post">
-		<p>
-			Students FirstName: <input type="text" name="studentFirstName" />
-		</p>
-		<p>
-			Students LastName: <input type="text" name="studentLastName" />
-		</p>
+		<table>
+			<tr>
+				<td>Students FirstName:</td>
+				<td><input type="text" name="studentFirstName" /></td>
+			</tr>
+			<tr>
+				<td>Students LastName:</td>
+				<td><input type="text" name="studentLastName" /></td>
+			</tr>
+			<tr>
+				<td>Students Mobile Number:</td>
+				<td><input type="text" name="mobileNumber" /></td>
+			</tr>
+			<tr>
+				<td>Students Date of Birth:</td>
+				<td><input type="text" name="dateOfBirth" /></td>
+			</tr>
+			<tr>
+				<td>Students Skills:</td>
+				<td><select name="userSkills" multiple="multiple">
+						<option value="Core Java">Core Java</option>
+						<option value="Struts">Struts</option>
+						<option value="Spring">Spring</option>
+						<option value="RestWebServices">Rest</option>
+				</select></td>
+			</tr>
+		</table>
 		<input type="submit" value="Click here to submit the form" />
 	</form>
 </body>

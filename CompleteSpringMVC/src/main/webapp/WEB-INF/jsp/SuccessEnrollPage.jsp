@@ -20,6 +20,18 @@
 			<td>Student Last Name:</td>
 			<td>${student.studentLastName}</td>
 		</tr>
+		<tr>
+			<td>Student Mobile Number:</td>
+			<td>${student.mobileNumber}</td>
+		</tr>
+		<tr>
+			<td>Student Date of Birth:</td>
+			<td>${student.dateOfBirth}</td>
+		</tr>
+		<tr>
+			<td>Student Skills:</td>
+			<td>${student.userSkills}</td>
+		</tr>
 	</table>
 </body>
 </html>
