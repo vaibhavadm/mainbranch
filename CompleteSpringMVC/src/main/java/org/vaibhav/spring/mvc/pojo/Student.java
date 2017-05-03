@@ -15,6 +15,17 @@ public class Student {
 	private long mobileNumber;
 	private Date dateOfBirth;
 	private ArrayList<String> userSkills;
+	//custom data type
+	private Address studentAddress;
+	
+	
+	public Address getStudentAddress() {
+		return studentAddress;
+	}
+
+	public void setStudentAddress(Address studentAddress) {
+		this.studentAddress = studentAddress;
+	}
 
 	public long getMobileNumber() {
 		return mobileNumber;

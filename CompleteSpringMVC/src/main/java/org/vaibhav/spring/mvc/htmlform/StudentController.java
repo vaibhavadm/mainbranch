@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,11 +30,15 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value = "/submitAdmissionForm.htm", method = RequestMethod.POST)
-	public ModelAndView submitAdmissionForm(@ModelAttribute("student") Student student/*@RequestParam Map<String, String> pathVars*/) {
-		
+	public ModelAndView submitAdmissionForm(@ModelAttribute("student") Student student/*@RequestParam Map<String, String> pathVars*/, BindingResult result) {
+		if(result.hasErrors()){
+			ModelAndView modelandView = new ModelAndView("AdmissionForm");
+			return modelandView;
+		}
 		ModelAndView modelandView = new ModelAndView("SuccessEnrollPage");
 		modelandView.addObject("msg", " Student successfully enrolled-> Student First Name: "
 				+ student.getStudentFirstName() + " Last Name: " + student.getStudentLastName());
+		
 		/*By using @ModelAttribute annotation we can skip the bean initialization/populating the bean
 		Student student1 = new Student();
 		student1.setStudentFirstName(student.getStudentFirstName());

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,6 +10,7 @@
 <body>
 	<h2>${voidMsg}</h2>
 	<h1>Student Admission Form</h1>
+	<form:errors path="student.*" />
 	<form action="/CompleteSpringMVC/submitAdmissionForm.htm" method="post">
 		<table>
 			<tr>
@@ -36,6 +38,21 @@
 						<option value="RestWebServices">Rest</option>
 				</select></td>
 			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>Student Address:</td>
+			</tr>
+			<tr>
+				<td>Street Name: <input type="text"
+					name="studentAddress.steetNum"></td>
+				<td>House Number: <input type="text"
+					name="studentAddress.aptNumORhouseNum"></td>
+				<td>City: <input type="text" name="studentAddress.city"></td>
+				<td>State: <input type="text" name="studentAddress.state"></td>
+				<td>Country: <input type="text" name="studentAddress.country"></td>
+			</tr>
+
 		</table>
 		<input type="submit" value="Click here to submit the form" />
 	</form>
