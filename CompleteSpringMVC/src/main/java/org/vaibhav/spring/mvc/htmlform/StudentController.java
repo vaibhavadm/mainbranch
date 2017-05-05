@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.vaibhav.spring.mvc.pojo.Student;
+import org.vaibhav.spring.mvc.propertyeditor.StudentNamePropertyEditor;
 
 /**
  * @author VAIBHAVREDDYGUDDETI May 2, 2017
@@ -38,6 +39,9 @@ public class StudentController {
 		//Here we are only using one default spring provided DataEditor.
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy*MM*DD");
 		binder.registerCustomEditor(Date.class, "dateOfBirth", new CustomDateEditor(simpleDateFormat, false));
+		
+		//custom property editor
+		binder.registerCustomEditor(String.class, "studentFirstName", new StudentNamePropertyEditor());
 	}
 	
 	@RequestMapping(value = "/admissionForm.htm", method = RequestMethod.GET)
