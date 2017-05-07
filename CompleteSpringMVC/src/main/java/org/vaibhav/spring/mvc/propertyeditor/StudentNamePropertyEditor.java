@@ -9,6 +9,7 @@ import java.beans.PropertyEditorSupport;
  * @author VAIBHAVREDDYGUDDETI
  *May 4, 2017
  */
+//Custom propertyEditor
 public class StudentNamePropertyEditor extends PropertyEditorSupport{
 	
 	public void setAsText(String studentName){
