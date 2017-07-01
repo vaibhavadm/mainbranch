@@ -6,10 +6,13 @@ package org.vaibhav.spring.mvc.pojo;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.validation.constraints.Size;
+
 /**
  * @author VAIBHAVREDDYGUDDETI May 2, 2017
  */
 public class Student {
+	@Size(min=2, max=10)
 	private String studentFirstName;
 	private String studentLastName;
 	private long mobileNumber;
